@@ -1,0 +1,244 @@
+/* src/popup/popup.css */
+
+/* CSS Variables for easier theming */
+:root {
+  --primary-color: #4285f4; /* Google Blue, a vibrant blue */
+  --primary-color-dark: #3367d6; /* Darker blue for hover/active */
+  --text-color-dark: #202124; /* Dark gray for main text */
+  --text-color-light: #f0f0f0; /* Light gray for dark backgrounds */
+  --bg-light: #ffffff; /* White background for popup content */
+  --bg-medium: #f5f5f5; /* Light gray for subtle contrast */
+  --bg-dark: #1a1a1a; /* Dark background for reader mode / section */
+  --border-color: #dadce0; /* Light gray border */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --error-color: #d93025;
+}
+
+.popup-container {
+  width: 360px; /* Slightly wider for better content display */
+  padding: 20px; /* Increased padding */
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif; /* Modern font */
+  background: var(--bg-medium); /* Light gray background */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 4px 20px var(--shadow-color); /* Softer, larger shadow */
+  color: var(--text-color-dark);
+}
+
+h2 {
+  font-size: 1.4rem; /* Slightly larger heading */
+  font-weight: 500;
+  margin-bottom: 20px; /* More space below heading */
+  color: var(--primary-color); /* Primary color for heading */
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* More space below tabs */
+  border-radius: 8px; /* Rounded tab container */
+  overflow: hidden; /* Ensures rounded corners on inner buttons */
+  background: var(--bg-light); /* White background for tab buttons */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for tabs */
+}
+.tabs button {
+  flex: 1;
+  padding: 10px 0; /* Increased padding */
+  border: none;
+  background: transparent; /* Transparent background by default */
+  color: var(--text-color-dark);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transitions */
+  font-size: 1rem;
+}
+.tabs button:hover {
+  background: var(--bg-medium); /* Subtle hover effect */
+  color: var(--primary-color-dark);
+}
+.tabs button.active {
+  background: var(--primary-color); /* Active tab uses primary color */
+  color: var(--text-color-light); /* White text for active tab */
+  box-shadow: inset 0 -3px 0 0 var(--primary-color-dark); /* Stronger active indicator */
+  transform: translateY(-1px); /* Slight lift for active tab */
+}
+.tabs button.active:hover {
+  background: var(--primary-color); /* Keep active color on hover */
+  color: var(--text-color-light);
+}
+
+.tab-content {
+  background: var(--bg-light); /* White background for content area */
+  border-radius: 8px; /* Rounded corners for content area */
+  padding: 18px; /* Increased padding */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Softer shadow */
+}
+
+p {
+  margin-bottom: 15px; /* Consistent spacing for paragraphs */
+  line-height: 1.5;
+  color: var(--text-color-dark);
+}
+
+.summarize-btn {
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 8px; /* More rounded */
+  padding: 12px 24px; /* Larger padding */
+  font-size: 1.05rem; /* Slightly larger font */
+  font-weight: 500;
+  margin-top: 15px; /* More space */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%; /* Full width button */
+}
+.summarize-btn:hover {
+  background: var(--primary-color-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle lift on hover */
+}
+.summarize-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.paragraph-input {
+  width: 100%;
+  border-radius: 8px; /* More rounded */
+  border: 1px solid var(--border-color); /* Soft border */
+  padding: 12px; /* More padding */
+  font-size: 1rem;
+  margin-bottom: 10px;
+  resize: vertical;
+  min-height: 100px; /* Minimum height for textarea */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.paragraph-input:focus {
+  outline: none;
+  border-color: var(--primary-color); /* Highlight on focus */
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2); /* Soft focus ring */
+}
+
+.summary-box {
+  background: var(--bg-medium); /* Light gray for summary box */
+  border-left: 4px solid var(--primary-color); /* Primary color accent */
+  padding: 15px; /* More padding */
+  margin-top: 20px; /* More space */
+  border-radius: 8px; /* More rounded */
+  color: var(--text-color-dark);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-line;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Inner shadow */
+}
+
+.error {
+  color: var(--error-color);
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+footer {
+  margin-top: 25px; /* More space for footer */
+  text-align: center;
+  font-size: 0.85rem; /* Smaller footer text */
+  color: #888;
+}
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+footer a:hover {
+  color: var(--primary-color-dark);
+}
+
+.yt-note {
+  background: #eaf3ff; /* Light blue for notes */
+  color: #1a73e8; /* Darker blue text */
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  border-left: 4px solid #4285f4; /* Stronger blue border */
+  line-height: 1.4;
+}
+
+.reader-toggle-btn {
+  background: var(--bg-dark); /* Dark background for this button */
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px; /* More padding */
+  font-size: 1rem;
+  margin-top: 15px; /* Consistent spacing */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-left: 0; /* Ensure no unwanted left margin */
+  margin-bottom: 8px; /* Add bottom margin as it was inline */
+}
+.reader-toggle-btn:hover {
+  background: #333; /* Slightly lighter dark on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.reader-toggle-btn.active {
+  background: var(
+    --primary-color-dark
+  ); /* Active state matches primary color */
+  color: var(--text-color-light);
+}
+.reader-toggle-btn.active:hover {
+  background: var(
+    --primary-color
+  ); /* Keep primary color on hover when active */
+}
+
+/* Injected Reader Mode elements on YouTube page (content.js) */
+#yt-reader-elements-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--bg-dark); /* Dark background */
+  color: var(--text-color-light); /* Light text */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for dark mode */
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 1.1em;
+  position: relative;
+  z-index: 9999;
+  display: block;
+}
+
+#yt-summary-box {
+  color: var(--text-color-light) !important;
+  white-space: pre-line;
+  background: none !important;
+  border-left: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+#yt-reader-disable-button {
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 0.95em;
+  margin-top: 15px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background 0.3s ease;
+}
+#yt-reader-disable-button:hover {
+  background: #666;
+}
